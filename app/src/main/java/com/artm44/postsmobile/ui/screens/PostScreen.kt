@@ -44,7 +44,7 @@ fun MainScreen(viewModel: MainViewModel = viewModel()) {
                     if (areCommentsVisible) {
                         viewModel.selectedPostId = null
                     } else {
-                        viewModel.loadPosts()
+                        viewModel.getPosts()
                     }
                 }
             ) {
@@ -81,7 +81,7 @@ fun MainScreen(viewModel: MainViewModel = viewModel()) {
             } else {
                 items(viewModel.posts) { post ->
                     PostItem(post) {
-                        viewModel.loadComments(post.id)
+                        viewModel.getComments(post.id)
                     }
                     Spacer(modifier = Modifier.height(8.dp))
                 }

@@ -15,7 +15,7 @@ class MainViewModel() : ViewModel() {
         private set
     var selectedPostId by mutableStateOf<Int?>(null)
 
-    fun loadPosts() {
+    fun getPosts() {
         viewModelScope.launch {
             val response = RetrofitInstance.api.getPosts()
             if (response.isSuccessful) {
@@ -24,7 +24,7 @@ class MainViewModel() : ViewModel() {
         }
     }
 
-    fun loadComments(postId: Int) {
+    fun getComments(postId: Int) {
         viewModelScope.launch {
             selectedPostId = postId
             val response = RetrofitInstance.api.getComments(postId)
