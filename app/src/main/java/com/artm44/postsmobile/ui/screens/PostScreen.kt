@@ -25,7 +25,6 @@ import androidx.compose.material3.IconButton
 
 @Composable
 fun MainScreen(viewModel: MainViewModel = viewModel()) {
-    // Определяем состояние, когда комментарии открыты
     val areCommentsVisible = viewModel.selectedPostId != null && viewModel.comments.isNotEmpty()
 
     Column(
@@ -33,7 +32,6 @@ fun MainScreen(viewModel: MainViewModel = viewModel()) {
             .fillMaxSize()
             .padding(16.dp)
     ) {
-        // Кнопка загрузки постов или возврата назад
         Box(
             contentAlignment = Alignment.Center,
             modifier = Modifier
@@ -44,9 +42,9 @@ fun MainScreen(viewModel: MainViewModel = viewModel()) {
             IconButton(
                 onClick = {
                     if (areCommentsVisible) {
-                        viewModel.selectedPostId = null // Возврат к постам
+                        viewModel.selectedPostId = null
                     } else {
-                        viewModel.loadPosts() // Загрузка постов
+                        viewModel.loadPosts()
                     }
                 }
             ) {
