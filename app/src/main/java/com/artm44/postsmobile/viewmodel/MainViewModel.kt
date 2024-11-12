@@ -15,6 +15,7 @@ class MainViewModel() : ViewModel() {
         private set
     var selectedPostId by mutableStateOf<Int?>(null)
 
+    // posts
     fun getPosts() {
         viewModelScope.launch {
             val response = RetrofitInstance.api.getPosts()
